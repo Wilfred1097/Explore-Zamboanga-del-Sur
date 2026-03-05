@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zamboanga del Sur Tourist Spots</title>
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<style>
+  .hover-img {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+  }
+
+  .hover-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  }
+
+  .preview-modal {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  /* Fixed uniform preview size */
+  .preview-frame {
+    width: 80%;
+    max-width: 900px;
+    height: 70vh;              /* 🔥 SAME HEIGHT FOR ALL */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .preview-frame img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;       /* Keeps aspect ratio */
+  }
+</style>
+<body>
+
+<!-- Header -->
+<header class="bg-success text-white text-center py-4">
+  <h1>Explore Zamboanga del Sur</h1>
+  <p class="lead">Top 5 Tourist Spots Near Pagadian City</p>
+</header>
+
+<div class="container my-5">
+
+  <!-- Dao-Dao Islands -->
+  <div class="row align-items-center mb-5">
+    <div class="col-md-6">
+      <img src="assets/images/daodao.png"
+           class="img-fluid rounded shadow hover-img preview-img" alt="Dao-Dao Islands">
+    </div>
+    <div class="col-md-6">
+      <h2>Dao-Dao Islands</h2>
+      <p>
+        Dao-Dao Islands are twin white-sand islands located in Pagadian City.
+        Known for crystal-clear waters, snorkeling areas, and relaxing beaches,
+        this destination is perfect for weekend island hopping and family outings.
+      </p>
+      <ul>
+        <li><strong>Location:</strong> Pagadian City</li>
+        <li><strong>Estimated Travel Time:</strong> 20–30 minutes by boat from Pagadian Port</li>
+        <li><strong>Best Activities:</strong> Swimming, snorkeling, beach camping</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Mount Timolan -->
+  <div class="row align-items-center mb-5 flex-md-row-reverse">
+    <div class="col-md-6">
+      <img src="assets/images/timolan.jpg"
+           class="img-fluid rounded shadow hover-img preview-img" alt="Mount Timolan">
+    </div>
+    <div class="col-md-6">
+      <h2>Mount Timolan</h2>
+      <p>
+        Mount Timolan is a protected natural park offering scenic hiking trails,
+        cool mountain air, and panoramic views of Zamboanga del Sur.
+        It is a favorite destination for adventure seekers and nature lovers.
+      </p>
+      <ul>
+        <li><strong>Location:</strong> Tigbao, Zamboanga del Sur</li>
+        <li><strong>Estimated Travel Time:</strong> 1 hour from Pagadian City</li>
+        <li><strong>Best Activities:</strong> Hiking, trekking, photography</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Lake Dasay -->
+  <div class="row align-items-center mb-5">
+    <div class="col-md-6">
+      <img src="assets/images/tuboran-eriberta-spring.jpg"
+           class="img-fluid rounded shadow hover-img preview-img" alt="Lake Dasay">
+    </div>
+    <div class="col-md-6">
+      <h2>Tuboran Eriberta Spring</h2>
+      <p>
+        Tuboran Eriberta Spring is a natural cold spring located in Barangay Tuboran, Mahayag, Zamboanga del Sur. It is known for its crystal-clear and refreshing water that flows continuously from the mountains, making it a perfect destination for relaxation and family outings.
+      </p>
+      <ul>
+        <li><strong>Location:</strong> Tuburan, Mahayag, Zamboanga del Sur</li>
+        <li><strong>Estimated Travel Time:</strong> 45 minutes to 1 hour from Pagadian City</li>
+        <li><strong>Best Activities:</strong> Swimming in natural cold spring wate, Family picnics and gatherings, Relaxation and nature photography, Barkada outings</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Pulacan Falls -->
+  <div class="row align-items-center mb-5 flex-md-row-reverse">
+    <div class="col-md-6">
+      <img src="assets/images/pulacan.png"
+           class="img-fluid rounded shadow hover-img preview-img" alt="Pulacan Falls">
+    </div>
+    <div class="col-md-6">
+      <h2>Pulacan Falls</h2>
+      <p>
+        Pulacan Falls is a beautiful hidden waterfall surrounded by greenery.
+        It is a refreshing getaway perfect for swimming and relaxing in nature.
+      </p>
+      <ul>
+        <li><strong>Location:</strong> Labangan, Zamboanga del Sur</li>
+        <li><strong>Estimated Travel Time:</strong> 45 minutes from Pagadian City</li>
+        <li><strong>Best Activities:</strong> Swimming, trekking, nature trips</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Pagadian City View Deck -->
+  <div class="row align-items-center mb-5">
+    <div class="col-md-6">
+      <img src="assets/images/boulevard.png"
+           class="img-fluid rounded shadow hover-img preview-img" alt="Pagadian City View Deck">
+    </div>
+    <div class="col-md-6">
+      <h2>Pagadian City Boulevard</h2>
+      <p>
+        Pagadian City Boulevard is one of the most popular leisure and recreational areas in Pagadian City, Zamboanga del Sur. Located along the coastal area facing Illana Bay, the boulevard offers a relaxing seaside atmosphere perfect for walking, jogging, and spending quality time with family and friends.
+      </p>
+      <ul>
+        <li><strong>Location:</strong> Pagadian City, Zamboanga del Sur</li>
+        <li><strong>Estimated Travel Time:</strong> Approximately 5–10 minutes (accessible within the city)</li>
+        <li><strong>Best Activities:</strong> Sunset viewing, Jogging and walking, Family bonding and picnics, Street food trips, Photography</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="modal fade" id="imageModal" tabindex="-1">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content preview-modal">
+        
+        <div class="modal-header border-0">
+          <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body d-flex justify-content-center align-items-center">
+          <div class="preview-frame">
+            <img id="modalImage" src="">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-3">
+  <p class="mb-0">&copy; 2026 Zamboanga del Sur Tourism Guide</p>
+</footer>
+
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script>
+  const previewImages = document.querySelectorAll('.preview-img');
+  const modalImage = document.getElementById('modalImage');
+  const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+
+  previewImages.forEach(img => {
+    img.addEventListener('click', function () {
+      modalImage.src = this.src;
+      imageModal.show();
+    });
+  });
+</script>
+
+</body>
+</html>
