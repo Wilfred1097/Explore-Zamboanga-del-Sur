@@ -3,190 +3,402 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Zamboanga del Sur Tourist Spots</title>
+  <title>Zamboanga del Sur · spot booking</title>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome for icons (optional but nice) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <style>
+    .hover-img {
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+    }
+    .hover-img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    }
+    .preview-modal {
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .preview-frame {
+      width: 80%;
+      max-width: 900px;
+      height: 70vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .preview-frame img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    /* booking card style */
+    .booking-card {
+      background: #f8f9fa;
+      border-radius: 1.25rem;
+      border-left: 6px solid #198754;
+      transition: 0.2s;
+    }
+    .booking-card:hover {
+      background: #fff3e6;
+    }
+    .btn-outline-success i {
+      margin-right: 6px;
+    }
+    .modal-booking {
+      background: rgba(0, 40, 0, 0.1);
+    }
+    footer a {
+      color: #ffc107;
+    }
+  </style>
 </head>
-<style>
-  .hover-img {
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    cursor: pointer;
-  }
-
-  .hover-img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-  }
-
-  .preview-modal {
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-  }
-
-  /* Fixed uniform preview size */
-  .preview-frame {
-    width: 80%;
-    max-width: 900px;
-    height: 70vh;              /* 🔥 SAME HEIGHT FOR ALL */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .preview-frame img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;       /* Keeps aspect ratio */
-  }
-</style>
-<body>
+<body class="bg-light">
 
 <!-- Header -->
-<header class="bg-success text-white text-center py-4">
-  <h1>Explore Zamboanga del Sur</h1>
-  <p class="lead">Top 5 Tourist Spots Near Pagadian City</p>
+<header class="bg-success text-white text-center py-4 shadow-sm">
+  <h1 class="fw-semibold"><i class="fa-solid fa-umbrella-beach me-2"></i>Explore Zamboanga del Sur</h1>
+  <p class="lead">Top 5 Tourist Spots Near Pagadian City – book your visit</p>
 </header>
 
-<div class="container my-5">
+<main class="container my-5">
+  <!-- each spot = row + attached booking panel (collapsible inside) -->
+  <!-- we inject a hidden "booking row" after each spot row -->
 
   <!-- Dao-Dao Islands -->
-  <div class="row align-items-center mb-5">
-    <div class="col-md-6">
-      <img src="assets/images/daodao.png"
-           class="img-fluid rounded shadow hover-img preview-img" alt="Dao-Dao Islands">
+  <div class="spot-wrapper mb-5">
+    <div class="row align-items-center g-4 spot-row">
+      <div class="col-md-6">
+        <img src="assets/images/daodao.png" 
+             class="img-fluid rounded-4 shadow hover-img preview-img" alt="Dao-Dao Islands">
+      </div>
+      <div class="col-md-6">
+        <h2 class="text-success"><i class="fa-solid fa-water me-2"></i>Dao-Dao Islands</h2>
+        <p class="text-secondary">Twin white-sand islands in Pagadian City. Crystal waters, snorkeling, relaxing beaches — ideal for island hopping and family outings.</p>
+        <ul class="list-unstyled">
+          <li><i class="fa-solid fa-location-dot text-success me-2"></i><strong>Location:</strong> Pagadian City</li>
+          <li><i class="fa-solid fa-ship text-success me-2"></i><strong>Travel:</strong> 20–30 min by boat</li>
+          <li><i class="fa-solid fa-fish text-success me-2"></i><strong>Activities:</strong> Swimming, snorkeling, camping</li>
+        </ul>
+        <!-- booking trigger -->
+        <button class="btn btn-outline-success mt-2 show-booking-btn" data-spot="Dao-Dao Islands">
+          <i class="fa-regular fa-calendar-check"></i> book this spot
+        </button>
+      </div>
     </div>
-    <div class="col-md-6">
-      <h2>Dao-Dao Islands</h2>
-      <p>
-        Dao-Dao Islands are twin white-sand islands located in Pagadian City.
-        Known for crystal-clear waters, snorkeling areas, and relaxing beaches,
-        this destination is perfect for weekend island hopping and family outings.
-      </p>
-      <ul>
-        <li><strong>Location:</strong> Pagadian City</li>
-        <li><strong>Estimated Travel Time:</strong> 20–30 minutes by boat from Pagadian Port</li>
-        <li><strong>Best Activities:</strong> Swimming, snorkeling, beach camping</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Mount Timolan -->
-  <div class="row align-items-center mb-5 flex-md-row-reverse">
-    <div class="col-md-6">
-      <img src="assets/images/timolan.jpg"
-           class="img-fluid rounded shadow hover-img preview-img" alt="Mount Timolan">
-    </div>
-    <div class="col-md-6">
-      <h2>Mount Timolan</h2>
-      <p>
-        Mount Timolan is a protected natural park offering scenic hiking trails,
-        cool mountain air, and panoramic views of Zamboanga del Sur.
-        It is a favorite destination for adventure seekers and nature lovers.
-      </p>
-      <ul>
-        <li><strong>Location:</strong> Tigbao, Zamboanga del Sur</li>
-        <li><strong>Estimated Travel Time:</strong> 1 hour from Pagadian City</li>
-        <li><strong>Best Activities:</strong> Hiking, trekking, photography</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Lake Dasay -->
-  <div class="row align-items-center mb-5">
-    <div class="col-md-6">
-      <img src="assets/images/tuboran-eriberta-spring.jpg"
-           class="img-fluid rounded shadow hover-img preview-img" alt="Lake Dasay">
-    </div>
-    <div class="col-md-6">
-      <h2>Tuboran Eriberta Spring</h2>
-      <p>
-        Tuboran Eriberta Spring is a natural cold spring located in Barangay Tuboran, Mahayag, Zamboanga del Sur. It is known for its crystal-clear and refreshing water that flows continuously from the mountains, making it a perfect destination for relaxation and family outings.
-      </p>
-      <ul>
-        <li><strong>Location:</strong> Tuburan, Mahayag, Zamboanga del Sur</li>
-        <li><strong>Estimated Travel Time:</strong> 45 minutes to 1 hour from Pagadian City</li>
-        <li><strong>Best Activities:</strong> Swimming in natural cold spring wate, Family picnics and gatherings, Relaxation and nature photography, Barkada outings</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Pulacan Falls -->
-  <div class="row align-items-center mb-5 flex-md-row-reverse">
-    <div class="col-md-6">
-      <img src="assets/images/pulacan.png"
-           class="img-fluid rounded shadow hover-img preview-img" alt="Pulacan Falls">
-    </div>
-    <div class="col-md-6">
-      <h2>Pulacan Falls</h2>
-      <p>
-        Pulacan Falls is a beautiful hidden waterfall surrounded by greenery.
-        It is a refreshing getaway perfect for swimming and relaxing in nature.
-      </p>
-      <ul>
-        <li><strong>Location:</strong> Labangan, Zamboanga del Sur</li>
-        <li><strong>Estimated Travel Time:</strong> 45 minutes from Pagadian City</li>
-        <li><strong>Best Activities:</strong> Swimming, trekking, nature trips</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Pagadian City View Deck -->
-  <div class="row align-items-center mb-5">
-    <div class="col-md-6">
-      <img src="assets/images/boulevard.png"
-           class="img-fluid rounded shadow hover-img preview-img" alt="Pagadian City View Deck">
-    </div>
-    <div class="col-md-6">
-      <h2>Pagadian City Boulevard</h2>
-      <p>
-        Pagadian City Boulevard is one of the most popular leisure and recreational areas in Pagadian City, Zamboanga del Sur. Located along the coastal area facing Illana Bay, the boulevard offers a relaxing seaside atmosphere perfect for walking, jogging, and spending quality time with family and friends.
-      </p>
-      <ul>
-        <li><strong>Location:</strong> Pagadian City, Zamboanga del Sur</li>
-        <li><strong>Estimated Travel Time:</strong> Approximately 5–10 minutes (accessible within the city)</li>
-        <li><strong>Best Activities:</strong> Sunset viewing, Jogging and walking, Family bonding and picnics, Street food trips, Photography</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="modal fade" id="imageModal" tabindex="-1">
-    <div class="modal-dialog modal-fullscreen">
-      <div class="modal-content preview-modal">
-        
-        <div class="modal-header border-0">
-          <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal"></button>
-        </div>
-
-        <div class="modal-body d-flex justify-content-center align-items-center">
-          <div class="preview-frame">
-            <img id="modalImage" src="">
+    <!-- hidden booking row (shown when toggled) -->
+    <div class="row booking-row d-none mt-4" id="booking-Dao-Dao Islands">
+      <div class="col-12">
+        <div class="booking-card p-4 shadow-sm">
+          <h5 class="text-success"><i class="fa-regular fa-pen-to-square me-2"></i>Booking for Dao-Dao Islands</h5>
+          <div class="row g-3">
+            <div class="col-sm-4">
+              <label class="form-label fw-semibold">👥 Visitors</label>
+              <input type="number" min="1" value="2" class="form-control" id="visitors-dao">
+            </div>
+            <div class="col-sm-4">
+              <label class="form-label fw-semibold">📅 Date</label>
+              <input type="date" class="form-control" id="date-dao">
+            </div>
+            <div class="col-sm-4 d-flex align-items-end">
+              <button class="btn btn-success w-100 book-now-btn" data-spot="Dao-Dao Islands">✔ Confirm booking</button>
+            </div>
           </div>
+          <div class="mt-3 text-success small"><i class="fa-regular fa-circle-check"></i> No payment today – simple reservation</div>
         </div>
-
       </div>
     </div>
   </div>
 
+  <!-- Mount Timolan -->
+  <div class="spot-wrapper mb-5">
+    <div class="row align-items-center g-4 flex-md-row-reverse spot-row">
+      <div class="col-md-6">
+        <img src="assets/images/timolan.jpg" 
+             class="img-fluid rounded-4 shadow hover-img preview-img" alt="Mount Timolan">
+      </div>
+      <div class="col-md-6">
+        <h2 class="text-success"><i class="fa-solid fa-mountain me-2"></i>Mount Timolan</h2>
+        <p>Protected natural park with scenic trails, cool air, panoramic views — a favourite for hikers and nature lovers.</p>
+        <ul class="list-unstyled">
+          <li><i class="fa-solid fa-location-dot text-success me-2"></i><strong>Location:</strong> Tigbao, Zamboanga del Sur</li>
+          <li><i class="fa-solid fa-clock text-success me-2"></i><strong>Travel:</strong> 1 hour from Pagadian City</li>
+          <li><i class="fa-solid fa-person-hiking text-success me-2"></i><strong>Activities:</strong> Hiking, trekking, photography</li>
+        </ul>
+        <button class="btn btn-outline-success mt-2 show-booking-btn" data-spot="Mount Timolan">
+          <i class="fa-regular fa-calendar-check"></i> book this spot
+        </button>
+      </div>
+    </div>
+    <div class="row booking-row d-none mt-4" id="booking-Mount Timolan">
+      <div class="col-12">
+        <div class="booking-card p-4 shadow-sm">
+          <h5 class="text-success"><i class="fa-regular fa-pen-to-square me-2"></i>Booking for Mount Timolan</h5>
+          <div class="row g-3">
+            <div class="col-sm-4">
+              <label class="form-label fw-semibold">👥 Hikers</label>
+              <input type="number" min="1" value="2" class="form-control" id="visitors-timolan">
+            </div>
+            <div class="col-sm-4">
+              <label class="form-label fw-semibold">📅 Preferred date</label>
+              <input type="date" class="form-control" id="date-timolan">
+            </div>
+            <div class="col-sm-4 d-flex align-items-end">
+              <button class="btn btn-success w-100 book-now-btn" data-spot="Mount Timolan">✔ Confirm booking</button>
+            </div>
+          </div>
+          <div class="mt-3 text-success small"><i class="fa-regular fa-circle-check"></i> guide on request</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tuboran Eriberta Spring -->
+  <div class="spot-wrapper mb-5">
+    <div class="row align-items-center g-4 spot-row">
+      <div class="col-md-6">
+        <img src="assets/images/tuboran-eriberta-spring.jpg" 
+             class="img-fluid rounded-4 shadow hover-img preview-img" alt="Lake Dasay">
+      </div>
+      <div class="col-md-6">
+        <h2 class="text-success"><i class="fa-solid fa-droplet me-2"></i>Tuboran Eriberta Spring</h2>
+        <p>Natural cold spring in Mahayag, crystal-clear mountain water, ideal for family picnics and nature swimming.</p>
+        <ul class="list-unstyled">
+          <li><i class="fa-solid fa-location-dot text-success me-2"></i><strong>Location:</strong> Tuboran, Mahayag</li>
+          <li><i class="fa-solid fa-clock text-success me-2"></i><strong>Travel:</strong> 45min–1h from Pagadian</li>
+          <li><i class="fa-solid fa-people-group text-success me-2"></i><strong>Activities:</strong> swimming, picnics, photography</li>
+        </ul>
+        <button class="btn btn-outline-success mt-2 show-booking-btn" data-spot="Tuboran Eriberta Spring">
+          <i class="fa-regular fa-calendar-check"></i> book this spot
+        </button>
+      </div>
+    </div>
+    <div class="row booking-row d-none mt-4" id="booking-Tuboran Eriberta Spring">
+      <div class="col-12">
+        <div class="booking-card p-4 shadow-sm">
+          <h5 class="text-success"><i class="fa-regular fa-pen-to-square me-2"></i>Booking for Tuboran Spring</h5>
+          <div class="row g-3">
+            <div class="col-sm-4">
+              <label class="form-label fw-semibold">👥 Visitors</label>
+              <input type="number" min="1" value="4" class="form-control" id="visitors-tuboran">
+            </div>
+            <div class="col-sm-4">
+              <label class="form-label fw-semibold">📅 Date</label>
+              <input type="date" class="form-control" id="date-tuboran">
+            </div>
+            <div class="col-sm-4 d-flex align-items-end">
+              <button class="btn btn-success w-100 book-now-btn" data-spot="Tuboran Eriberta Spring">✔ Confirm booking</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pulacan Falls -->
+  <div class="spot-wrapper mb-5">
+    <div class="row align-items-center g-4 flex-md-row-reverse spot-row">
+      <div class="col-md-6">
+        <img src="assets/images/pulacan.png" 
+             class="img-fluid rounded-4 shadow hover-img preview-img" alt="Pulacan Falls">
+      </div>
+      <div class="col-md-6">
+        <h2 class="text-success"><i class="fa-solid fa-waterfall me-2"></i>Pulacan Falls</h2>
+        <p>Hidden waterfall surrounded by lush greenery, perfect for a refreshing swim and nature escape.</p>
+        <ul class="list-unstyled">
+          <li><i class="fa-solid fa-location-dot text-success me-2"></i><strong>Location:</strong> Labangan</li>
+          <li><i class="fa-solid fa-clock text-success me-2"></i><strong>Travel:</strong> 45 min from Pagadian</li>
+          <li><i class="fa-solid fa-tree text-success me-2"></i><strong>Activities:</strong> swimming, trekking, nature trips</li>
+        </ul>
+        <button class="btn btn-outline-success mt-2 show-booking-btn" data-spot="Pulacan Falls">
+          <i class="fa-regular fa-calendar-check"></i> book this spot
+        </button>
+      </div>
+    </div>
+    <div class="row booking-row d-none mt-4" id="booking-Pulacan Falls">
+      <div class="col-12">
+        <div class="booking-card p-4 shadow-sm">
+          <h5 class="text-success"><i class="fa-regular fa-pen-to-square me-2"></i>Booking for Pulacan Falls</h5>
+          <div class="row g-3">
+            <div class="col-sm-4">
+              <label class="form-label fw-semibold">👥 Visitors</label>
+              <input type="number" min="1" value="3" class="form-control" id="visitors-pulacan">
+            </div>
+            <div class="col-sm-4">
+              <label class="form-label fw-semibold">📅 Date</label>
+              <input type="date" class="form-control" id="date-pulacan">
+            </div>
+            <div class="col-sm-4 d-flex align-items-end">
+              <button class="btn btn-success w-100 book-now-btn" data-spot="Pulacan Falls">✔ Confirm booking</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagadian City Boulevard -->
+  <div class="spot-wrapper mb-5">
+    <div class="row align-items-center g-4 spot-row">
+      <div class="col-md-6">
+        <img src="assets/images/boulevard.png" 
+             class="img-fluid rounded-4 shadow hover-img preview-img" alt="Pagadian City Boulevard">
+      </div>
+      <div class="col-md-6">
+        <h2 class="text-success"><i class="fa-solid fa-sun me-2"></i>Pagadian City Boulevard</h2>
+        <p>Popular seaside promenade facing Illana Bay, perfect for sunset strolls, jogging, and street food.</p>
+        <ul class="list-unstyled">
+          <li><i class="fa-solid fa-location-dot text-success me-2"></i><strong>Location:</strong> Pagadian City</li>
+          <li><i class="fa-solid fa-clock text-success me-2"></i><strong>Travel:</strong> 5–10 min (city center)</li>
+          <li><i class="fa-solid fa-camera text-success me-2"></i><strong>Activities:</strong> sunset, jogging, picnics, food trips</li>
+        </ul>
+        <button class="btn btn-outline-success mt-2 show-booking-btn" data-spot="Pagadian Boulevard">
+          <i class="fa-regular fa-calendar-check"></i> book this spot
+        </button>
+      </div>
+    </div>
+    <div class="row booking-row d-none mt-4" id="booking-Pagadian Boulevard">
+      <div class="col-12">
+        <div class="booking-card p-4 shadow-sm">
+          <h5 class="text-success"><i class="fa-regular fa-pen-to-square me-2"></i>Booking for Pagadian Boulevard</h5>
+          <div class="row g-3">
+            <div class="col-sm-4">
+              <label class="form-label fw-semibold">👥 Visitors</label>
+              <input type="number" min="1" value="2" class="form-control" id="visitors-boulevard">
+            </div>
+            <div class="col-sm-4">
+              <label class="form-label fw-semibold">📅 Date</label>
+              <input type="date" class="form-control" id="date-boulevard">
+            </div>
+            <div class="col-sm-4 d-flex align-items-end">
+              <button class="btn btn-success w-100 book-now-btn" data-spot="Pagadian Boulevard">✔ Confirm booking</button>
+            </div>
+          </div>
+          <div class="mt-3 text-success small"><i class="fa-regular fa-bell"></i> free entry, just reserve your spot</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- image preview modal (exactly as original, but kept) -->
+<div class="modal fade" id="imageModal" tabindex="-1">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content preview-modal">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body d-flex justify-content-center align-items-center">
+        <div class="preview-frame">
+          <img id="modalImage" src="" alt="enlarged view">
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<!-- Footer -->
-<footer class="bg-dark text-white text-center py-3">
-  <p class="mb-0">&copy; 2026 Zamboanga del Sur Tourism Guide</p>
+<!-- footer -->
+<footer class="bg-dark text-white text-center py-4 mt-3">
+  <p class="mb-0">&copy; 2026 Zamboanga del Sur Tourism – simplified booking system <i class="fa-regular fa-heart text-danger"></i></p>
+  <p class="small text-secondary mt-1"><i class="fa-regular fa-circle-check"></i> Click "book this spot" to show/hide booking panel</p>
 </footer>
 
 <script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/sweetalert2/sweetalert2.all.min.js"></script>
 <script>
-  const previewImages = document.querySelectorAll('.preview-img');
-  const modalImage = document.getElementById('modalImage');
-  const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+  (function() {
+    // image preview (your original code, but with dynamic images)
+    const previewImages = document.querySelectorAll('.preview-img');
+    const modalImage = document.getElementById('modalImage');
+    const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
 
-  previewImages.forEach(img => {
-    img.addEventListener('click', function () {
-      modalImage.src = this.src;
-      imageModal.show();
+    previewImages.forEach(img => {
+      img.addEventListener('click', function () {
+        modalImage.src = this.src;
+        imageModal.show();
+      });
     });
-  });
+
+    // ---------- booking system enhancement ----------
+    // 1. toggle booking row when "book this spot" is clicked
+    const showBookingButtons = document.querySelectorAll('.show-booking-btn');
+    showBookingButtons.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const spotName = this.getAttribute('data-spot');
+        const bookingRow = document.getElementById(`booking-${spotName}`);
+        if (bookingRow) {
+          // hide any other open booking rows? we can keep it simple: toggle current
+          bookingRow.classList.toggle('d-none');
+        } else {
+          console.warn('no booking row for', spotName);
+        }
+      });
+    });
+
+    // 2. booking confirmation (book now buttons)
+    const bookNowBtns = document.querySelectorAll('.book-now-btn');
+    bookNowBtns.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const spot = this.getAttribute('data-spot');
+        // find nearest input fields – easiest: navigate inside booking card
+        const bookingCard = this.closest('.booking-card');
+        if (!bookingCard) return;
+
+        // we look for the first number input and first date input inside this card
+        const numberInput = bookingCard.querySelector('input[type="number"]');
+        const dateInput = bookingCard.querySelector('input[type="date"]');
+
+        const visitors = numberInput ? numberInput.value : 'not set';
+        const date = dateInput ? dateInput.value : 'not set';
+
+        if (!date) {
+          Swal.fire({
+            icon: 'warning',
+            title: 'Missing Date',
+            text: 'Please select a date before confirming.'
+          });
+          return;
+        }
+
+        // dummy success message (reservation simulation)
+        Swal.fire({
+          icon: 'success',
+          title: 'Booking Confirmed!',
+          html: `
+            <b>Tourist Spot:</b> ${spot}<br>
+            👥 Visitors: <b>${visitors}</b><br>
+            📅 Date: <b>${date}</b><br><br>
+          `,
+          confirmButtonColor: '#28a745'
+        });
+
+        // optionally close the booking panel after booking
+        const bookingRow = bookingCard.closest('.booking-row');
+        if (bookingRow && !bookingRow.classList.contains('d-none')) {
+          // small delay: keep it open? we'll keep it open but you can also auto-close:
+          bookingRow.classList.add('d-none'); // uncomment if you want auto close
+        }
+      });
+    });
+
+    // set min date to today for all date inputs
+    const today = new Date().toISOString().split('T')[0];
+    document.querySelectorAll('input[type="date"]').forEach(input => {
+      input.setAttribute('min', today);
+      // optionally set a default value (tomorrow?)
+      const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0];
+      if (!input.value) input.value = tomorrow;
+    });
+
+    // optional: close booking row if user clicks outside? not needed for simplicity
+  })();
 </script>
 
+<!-- tiny style: images placeholder, but your file structure would use real assets -->
+<!-- replace placehold.co with actual images if needed -->
 </body>
 </html>
